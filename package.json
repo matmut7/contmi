@@ -1,0 +1,11 @@
+{
+  "devDependencies": {
+    "turbo": "^1.10.7"
+  },
+  "scripts": {
+    "dev": "turbo dev",
+    "lint": "turbo lint",
+    "build": "turbo build",
+    "preview": "turbo preview"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "pipeline": {
+    "dev": {
+      "persistent": true,
+      "cache": false
+    },
+    "lint": {},
+    "build": { "outputs": ["dist/**"] },
+    "preview": {
+      "persistent": true,
+      "cache": false,
+      "dependsOn": ["build"]
+    }
+  }
+}
