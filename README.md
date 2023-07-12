@@ -4,11 +4,17 @@ Contmi is a budget-sharing application designed to help users manage and share t
 
 ## Key Features
 
+:warning: This app being a work in progress, the following is kind of a wishlist :warning:
+
 - :unlock: **Free and Open Source**: Contmi is an open-source project, providing transparency and encouraging community contributions.
 - :sparkles: **Easy to Use**: The application aims to provide a user-friendly interface, making budget management and expense sharing simple and intuitive.
 - :earth_americas: **Local/Offline First**: Contmi prioritizes storing and processing data locally, allowing users to access their budget information even without an internet connection.
 - :no_entry_sign: **No Ads or Premium Offers**: Contmi is free from advertisements and does not offer any premium subscriptions or features.
 - :gear: **Easy to Self-Host**: Contmi is designed to be easily self-hosted, giving users full control over their data and allowing customization to fit specific needs.
+
+## Contributing
+
+Contributing is highly recommended. [Get in touch!](https://github.com/matmut7/contmi/discussions)
 
 ## Architecture
 
