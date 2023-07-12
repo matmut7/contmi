@@ -15,8 +15,10 @@ Contmi is a budget-sharing application designed to help users manage and share t
 There are multiple packages in this repo:
 
 - client: [React](https://react.dev/learn) and [Vulcan](https://vlcn.io/docs) browser frontend
-- server: [Express](https://expressjs.com/) server acting as a data synchronization relay between client
+- server: [Express](https://expressjs.com/) server acting as a data synchronization relay between clients
 - schema: database schema shared between client and server
+
+Vulcan allows each client device to store and persist a local copy of the app's data in an SQLite database. The server allows clients to synchronize and merge their respective version of the DB, thanks to a [CRDT](https://en.wikipedia.org/wiki/Conflict-free_replicated_data_type).
 
 We're using [Turborepo](https://turbo.build/repo/docs) for monorepo management and [pnpm](https://pnpm.io/installation) for Node.js package management.
 
