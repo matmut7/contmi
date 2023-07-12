@@ -1,11 +1,12 @@
 {
+  "packageManager": "pnpm@8.6.7",
   "devDependencies": {
     "turbo": "^1.10.7"
   },
   "scripts": {
     "dev": "turbo dev",
-    "lint": "turbo lint",
-    "build": "turbo build",
+    "lint": "turbo lint --cache-dir=.turbo",
+    "build": "turbo build --cache-dir=.turbo",
     "preview": "turbo preview"
   }
 }
