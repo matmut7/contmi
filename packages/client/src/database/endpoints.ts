@@ -9,7 +9,8 @@ export const endpoints = {
   startOutboundStream: updatePort(
     new URL("/sync/start-outbound-stream", window.location.origin)
   ),
-  worker,
+  // TODO production build won't work without this, isn't documented on Vulcan's repo
+  worker: import.meta.env.DEV ? worker : undefined,
   wasm,
 };
 

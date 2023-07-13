@@ -1,4 +1,4 @@
-name: CI
+name: integration checks
 
 on: [push]
 

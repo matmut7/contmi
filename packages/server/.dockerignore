@@ -1,0 +1,7 @@
+.dockerignore
+.gitignore
+.eslintrc.cjs
+node_modules
+dist
+.turbo
+dbs

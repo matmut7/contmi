@@ -1,0 +1,10 @@
+**/node_modules
+**/Dockerfile
+**/.gitignore
+**/dist
+**/.turbo
+**/.changeset
+**/.dockerignore
+**/.gitignore
+LICENSE
+README.md

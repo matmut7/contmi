@@ -18,6 +18,7 @@
     "@vlcn.io/direct-connect-nodejs": "^0.4.0",
     "cors": "^2.8.5",
     "express": "^4.18.2",
+    "pino-http": "^8.3.3",
     "schema": "workspace:*",
     "tsup": "^7.1.0"
   },
