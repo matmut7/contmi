@@ -12,7 +12,7 @@ jobs:
       - name: Check out code
         uses: actions/checkout@v3
         with:
-          fetch-depth: 2
+          fetch-depth: 0
 
       - name: Cache turbo
         uses: actions/cache@v3
@@ -38,3 +38,6 @@ jobs:
 
       - name: Build
         run: pnpm build
+
+      - name: Check changeset
+        run: pnpm changeset status
