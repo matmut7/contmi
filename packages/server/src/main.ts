@@ -15,6 +15,7 @@ import cors from "cors";
 import express from "express";
 import { cryb64 } from "@vlcn.io/direct-connect-nodejs";
 import { schema } from "schema";
+import logger from "pino-http";
 
 async function migrate() {
   const svcDb = new ServiceDB(DefaultConfig, true);
@@ -38,6 +39,7 @@ migrate();
 const app = express();
 app.use(express.json());
 app.use(cors());
+app.use(logger());
 
 const svcDb = new ServiceDB(DefaultConfig, true);
 const dbCache = new DBCache(DefaultConfig, (name, version) => {
@@ -60,7 +62,7 @@ app.post("/sync/create-or-migrate", async (req, res) => {
 });
 
 app.get("/sync/start-outbound-stream", async (req, res) => {
-  console.log("Start outbound stream");
+  req.log.info("starting outbound stream");
   const msg = serializer.decode(
     JSON.parse(decodeURIComponent(req.query.msg as string))
   ) as EstablishOutboundStreamMsg;
@@ -76,7 +78,7 @@ app.get("/sync/start-outbound-stream", async (req, res) => {
       `data: ${JSON.stringify(serializer.encode(changes))}\n\n`,
       (err) => {
         if (err != null) {
-          console.error(err);
+          req.log.error(err);
           stream.close();
         }
       }
@@ -84,7 +86,7 @@ app.get("/sync/start-outbound-stream", async (req, res) => {
   });
 
   req.on("close", () => {
-    console.log("Close outbound stream");
+    req.log.info("close outbound stream");
     stream.close();
   });
 });
