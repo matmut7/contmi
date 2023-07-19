@@ -1,5 +1,13 @@
 # client
 
+## 0.0.1
+
+### Patch Changes
+
+- 27d97e7: initial release
+- Updated dependencies [27d97e7]
+  - schema@0.0.1
+
 ## 0.13.0
 
 ### Minor Changes
