@@ -91,6 +91,4 @@ app.get("/sync/start-outbound-stream", async (req, res) => {
   });
 });
 
-app.listen(3000, () =>
-  console.log(`Server listening at http://localhost:3000`)
-);
+app.listen(3000, () => console.log(`Server listening on port 3000`));
