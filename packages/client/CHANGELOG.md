@@ -1,5 +1,11 @@
 # client
 
+## 0.0.2
+
+### Patch Changes
+
+- 1420b76: prepare images for reverse proxy deployment
+
 ## 0.0.1
 
 ### Patch Changes
