@@ -1,5 +1,11 @@
 # client
 
+## 0.0.3
+
+### Patch Changes
+
+- 3f58d07: fix production port
+
 ## 0.0.2
 
 ### Patch Changes
