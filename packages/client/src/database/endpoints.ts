@@ -1,8 +1,6 @@
 import worker from "@vlcn.io/direct-connect-browser/dedicated.worker.js?url";
 import wasm from "@vlcn.io/crsqlite-wasm/crsqlite.wasm?url";
 
-const serverPort = process.env.NODE_ENV === "production" ? "8080" : "3000";
-
 export const endpoints = {
   createOrMigrate: updatePort(
     new URL("/sync/create-or-migrate", window.location.origin)
@@ -17,6 +15,8 @@ export const endpoints = {
 };
 
 function updatePort(u: URL) {
-  u.port = serverPort;
+  if (process.env.NODE_ENV !== "production") {
+    u.port = "3000";
+  }
   return u;
 }
