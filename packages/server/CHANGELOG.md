@@ -1,5 +1,11 @@
 # server
 
+## 0.0.3
+
+### Patch Changes
+
+- 08eac77: update vlcn dpenedencies and use conform hard coded DB id
+
 ## 0.0.2
 
 ### Patch Changes
