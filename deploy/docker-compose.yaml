@@ -1,0 +1,26 @@
+services:
+  nginx:
+    image: nginx:alpine
+    environment:
+      - TZ=Europe/Paris
+    ports:
+      - 80:80
+    volumes:
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf
+
+  contmi-client:
+    # image: ghcr.io/matmut7/contmi/client:latest
+    build:
+      context: ../
+      dockerfile: ./packages/client/Dockerfile
+
+  contmi-server:
+    # image: ghcr.io/matmut7/contmi/server:latest
+    build:
+      context: ../
+      dockerfile: ./packages/server/Dockerfile
+    volumes:
+      - contmi:/app/packages/server/dbs
+
+volumes:
+  contmi:
