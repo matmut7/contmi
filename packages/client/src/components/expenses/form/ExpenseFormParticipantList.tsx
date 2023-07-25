@@ -11,6 +11,7 @@ import {
     Paper,
     Select,
     Stack,
+    Typography,
   } from "@mui/material";
   import Grid2 from "@mui/material/Unstable_Grid2/Grid2";
   import { useDB, useQuery } from "@vlcn.io/react";
@@ -94,26 +95,7 @@ import React from "react";
     return (
     <Paper sx={{ p: 2, height: "100%", overflow: "scroll" }}>
         <Stack sx={{ flexGrow: 1 }} direction="column" spacing={2}>
-            
-        <FormControl>
-            <InputLabel id="add-participant-label">Add participant</InputLabel>
-            <Select
-            label="Add participant"
-            labelId="add-participant-label"
-            onChange={(event) => {
-                handleInsertParticipant(+event.target.value);
-                updateAmounts();
-                setAddParticipant("");
-            }}
-            value={addParticipant}
-            >
-            {participants.data.map((participant, index) => (
-                <MenuItem key={index} value={index}>
-                {participant.name}
-                </MenuItem>
-            ))}
-            </Select>
-        </FormControl>
+        <Typography variant="h6">Participating to this expense</Typography>
         <Stack direction="row" justifyContent="center" spacing={2}>
             <Button 
             variant="outlined"
