@@ -1,8 +1,12 @@
 import {
     Box,
     Button,
+    Dialog,
+    DialogTitle,
     FormControl,
     InputLabel,
+    List,
+    ListItem,
     MenuItem,
     Paper,
     Select,
@@ -16,6 +20,8 @@ import {
   import ExpenseFormParticipantItem from "./ExpenseFormParticipantItem";
   import { useExpenseFormState } from "../../../hooks/useExpenseFormState";
   import { shallow } from "zustand/shallow";
+import { GroupAdd } from "@mui/icons-material";
+import React from "react";
   
   function ParticipantsList() {
     const setFormData = useExpenseFormState((state) => state.setData);
@@ -68,10 +74,27 @@ import {
       updateAmounts();
     }
   
-  
+    /*
+    Modal functions (for adding participant 1 by 1)
+    */
+    const [open, setOpen] = React.useState(false);
+
+    const handleClickOpen = () => {
+        setOpen(true);
+      };
+
+    const handleClose = () => {
+        setOpen(false);
+    };
+
+    /*
+    End of modal functions
+    */
+
     return (
     <Paper sx={{ p: 2, height: "100%", overflow: "scroll" }}>
         <Stack sx={{ flexGrow: 1 }} direction="column" spacing={2}>
+            
         <FormControl>
             <InputLabel id="add-participant-label">Add participant</InputLabel>
             <Select
@@ -92,7 +115,35 @@ import {
             </Select>
         </FormControl>
         <Stack direction="row" justifyContent="center" spacing={2}>
-            <Button variant="outlined" onClick={insertAllParticipants}>
+            <Button 
+            variant="outlined"
+            onClick={handleClickOpen}
+            >
+            <GroupAdd />
+            </Button>
+            <Dialog
+            open={open}
+            onClose={handleClose}
+            >
+                <DialogTitle>Add participant</DialogTitle>
+                <List sx={{ p: 1 }}>
+                    {participants.data.map((participant, index) => (
+                        <ListItem onClick={() => {
+                            handleInsertParticipant(index);
+                            updateAmounts();
+                            setAddParticipant("");
+                            setOpen(false);
+                        }}
+                        >
+                            {participant.name}
+                        </ListItem>
+                    ))}
+                </List>
+            </Dialog>
+            <Button 
+            variant="outlined"
+            onClick={insertAllParticipants}
+            >
             Insert all
             </Button>
             <Button
