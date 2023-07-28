@@ -1,5 +1,11 @@
 # client
 
+## 0.0.5
+
+### Patch Changes
+
+- 35ff86d: refactor participant form
+
 ## 0.0.4
 
 ### Patch Changes
