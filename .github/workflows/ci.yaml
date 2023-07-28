@@ -6,8 +6,8 @@ on:
       - "**"
 
 jobs:
-  ci:
-    name: lint and build
+  lint:
+    name: lint
     runs-on: ubuntu-latest
 
     steps:
@@ -38,8 +38,61 @@ jobs:
       - name: Lint
         run: pnpm lint
 
+      - name: Check changeset
+        run: pnpm changeset status
+
+  build:
+    name: build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Cache turbo
+        uses: actions/cache@v3
+        with:
+          path: .turbo
+          key: ${{ runner.os }}-turbo-${{ github.sha }}
+          restore-keys: |
+            ${{ runner.os }}-turbo-
+
+      - uses: pnpm/action-setup@v2
+
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20
+          cache: "pnpm"
+
+      - name: Install dependencies
+        run: pnpm install
+
       - name: Build
         run: pnpm build
+
+  changeset:
+    name: changeset
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - uses: pnpm/action-setup@v2
+
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20
+          cache: "pnpm"
+
+      - name: Install dependencies
+        run: pnpm install
 
       - name: Check changeset
         run: pnpm changeset status
