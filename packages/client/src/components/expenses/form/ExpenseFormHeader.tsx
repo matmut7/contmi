@@ -64,7 +64,7 @@ function ExpenseFormHeader() {
             value={amount}
           />
         </Grid2>
-        <Grid2 xs={12} md={6}>
+        <Grid2 xs={6} md={6}>
           <FormControl fullWidth>
             <InputLabel id="authorLabel">Author</InputLabel>
             <Select
@@ -85,7 +85,7 @@ function ExpenseFormHeader() {
             </Select>
           </FormControl>
         </Grid2>
-        <Grid2 xs={12} md={6}>
+        <Grid2 xs={6} md={6}>
           <FormControl fullWidth>
             <InputLabel id="categorylabel">Category</InputLabel>
             <Select

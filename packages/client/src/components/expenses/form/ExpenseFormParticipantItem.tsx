@@ -19,20 +19,25 @@ function ParticipantFormItem({ index }: Props) {
   );
 
   return (
-    <Paper sx={{ p: 2 }}>
+    <Paper sx={{ p: 1 }}>
       <Stack
         direction="row"
         alignItems="center"
-        spacing={2}
+        spacing={1}
         justifyContent="space-between"
       >
-        <Stack direction="column" spacing={2}>
+        <IconButton 
+        sx={{ p: 0 }}
+        onClick={() => removeParticipant(index)}
+        >
+          <Close color="error" />
+        </IconButton>
+        <Stack direction="column" spacing={0}>
           <Typography variant="h6">{participantData.name}</Typography>
-          <IconButton onClick={() => removeParticipant(index)}>
-            <Close color="error" />
-          </IconButton>
+         
+          <Typography>{participantData.amount} €</Typography>
         </Stack>
-        <Stack direction="column" spacing={2} alignItems="end">
+        <Stack direction="column" spacing={2} alignItems="start">
           <TextField
             fullWidth
             label="coefficient"
@@ -45,8 +50,8 @@ function ParticipantFormItem({ index }: Props) {
               updateAmounts();
             }}
           />
-          <Typography>amount: {participantData.amount}</Typography>
         </Stack>
+        
       </Stack>
     </Paper>
   );
